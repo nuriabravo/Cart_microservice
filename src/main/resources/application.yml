@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: cartMicroservice
+
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://34.175.164.238:3309/CartDB
+    username: cart
+    password: cart
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+server:
+  servlet:
+    context-path: /
+    port: ${PORT:8080}
+
+catalog:
+  api:
+    base-url: https://catalog-workshop-yequy5sv5a-uc.a.run.app
+    products-uri: /catalog/products/byIds
+    product-uri: /catalog/products/{id}
+    discount-uri: /catalog/products/{product_id}/price-checkout?quantity={quantity}
+    volumePromotion-uri: /catalog/products/volumePromotion
+
+users:
+  api:
+    base-url: https://user-microservice-ey3npq3qvq-uc.a.run.app
+    users-uri: /users/{id}
